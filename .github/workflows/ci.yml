@@ -12,27 +12,27 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - os: linux
-            cpu: amd64
-          - os: linux
-            cpu: i386
+          #- os: linux
+          #  cpu: amd64
+          #- os: linux
+          #  cpu: i386
           - os: macos
             cpu: amd64
-          - os: windows
-            cpu: amd64
+          #- os: windows
+          #  cpu: amd64
           #- os: windows
             #cpu: i386
         branch: [version-1-6, version-2-0, devel]
         include:
-          - target:
-              os: linux
-            builder: ubuntu-latest
+          #- target:
+          #    os: linux
+          #  builder: ubuntu-latest
           - target:
               os: macos
             builder: macos-latest
-          - target:
-              os: windows
-            builder: windows-latest
+          #- target:
+          #    os: windows
+          #  builder: windows-latest
 
     defaults:
       run:
@@ -162,6 +162,7 @@ jobs:
             # https://github.com/status-im/nimbus-eth2/issues/3121
             export NIMFLAGS="-d:nimRawSetjmp"
           fi
+          gcc --version
           nim --version
           nimble --version
           nimble install -y --depsOnly
